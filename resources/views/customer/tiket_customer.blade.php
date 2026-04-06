@@ -398,7 +398,6 @@
   @include('navbar')
 
     <div class="container py-5">
-        <h1 class="section-title">Tiket Saya</h1>
 
         @if($tiketCustomers->isEmpty())
             <div class="empty-state">

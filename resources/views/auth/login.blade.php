@@ -246,7 +246,7 @@
             </div>
 
             <div class="login-form-side">
-                <form id="loginForm" action="{{ secure_url('/login') }}" method="POST">
+                <form id="loginForm" action="{{ url('/login') }}" method="POST">
                     @csrf
                     <div class="login-title">LOG IN</div>
 

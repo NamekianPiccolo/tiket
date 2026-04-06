@@ -317,7 +317,7 @@
 
 
                                 @auth
-                                <form action="{{ secure_url("/keranjang") }}" method="POST">
+                                <form action="{{ url("/keranjang") }}" method="POST">
                                     @csrf
                                     <input type="hidden" name="tiket_id" value="{{ $tiket->id }}">
                                     <input type="hidden" name="jumlah" value="1" min="1" max="{{ $tiket->stok }}">

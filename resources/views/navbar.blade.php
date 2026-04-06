@@ -27,7 +27,7 @@
                         <a class="nav-link {{ Route::currentRouteName() == 'transaksi.index' ? 'active' : '' }}" href="{{ route('transaksi.index') }}">Transaksi</a>
                     </li>
                     <li class="nav-item">
-                        <form action="{{ secure_url('logout') }}" method="POST" class="d-inline">
+                        <form action="{{ url('logout') }}" method="POST" class="d-inline">
                             @csrf
                             <button type="submit" class="nav-link btn btn-link px-3" style="cursor: pointer;">
                                 Logout

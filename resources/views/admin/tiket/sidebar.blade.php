@@ -19,7 +19,7 @@
     <!-- Menu Items -->
         <ul class="sidebar-menu">
             <li>
-               <a href="{{ secure_url("tikets") }}" class="{{ request()->routeIs('tikets.index') ? 'active' : '' }}" style="margin-right: 6px">
+               <a href="{{ url("tikets") }}" class="{{ request()->routeIs('tikets.index') ? 'active' : '' }}" style="margin-right: 6px">
             <i class="fas fa-ticket-alt"></i> Manajemen Tiket
         </a>
             </li>
@@ -40,7 +40,7 @@
 
 
            <li>
-                <form id="logout-form" action="{{ secure_url('logout') }}" method="POST" style="display: none;">
+                <form id="logout-form" action="{{ url('logout') }}" method="POST" style="display: none;">
                     @csrf
                 </form>
 

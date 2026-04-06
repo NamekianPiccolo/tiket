@@ -357,7 +357,7 @@
                                     @auth
                                         @if($tiket->stok > 0)
                                             <!-- Form Tambah ke Keranjang -->
-                                            <form action="{{secure_url('/keranjang')}}" method="POST">
+                                            <form action="{{url('/keranjang')}}" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="tiket_id" value="{{ $tiket->id }}">
                                                 <input type="hidden" name="harga" value="{{ $tiket->harga }}">
@@ -383,7 +383,7 @@
                                         @endif
                                     @else
                                         @if($tiket->stok > 0)
-                                            <a href="{{ secure_url(route('login', ['return_url' => url()->current()])) }}" class="btn btn-primary btn-lg">
+                                            <a href="{{ url(route('login', ['return_url' => url()->current()])) }}" class="btn btn-primary btn-lg">
                                                 <i class="fas fa-sign-in-alt me-2"></i> Login untuk Membeli
                                             </a>
                                         @else
@@ -430,7 +430,7 @@
                     <h5 class="modal-title" id="buyNowModalLabel">Beli Sekarang</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form id="buyNowForm" action="{{secure_url('/checkoutLangsung') }}" method="POST">
+                <form id="buyNowForm" action="{{ url('/checkoutLangsung') }}" method="POST">
                     @csrf
                     <div class="modal-body">
                         <input type="hidden" name="tiket_id" value="{{ $tiket->id }}">
