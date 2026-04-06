@@ -1,0 +1,62 @@
+Schema::create('transaksis', function (Blueprint $table) {
+    $table->id();
+    $table->string('kode_transaksi')->unique();
+    $table->unsignedBigInteger('user_id');
+    $table->decimal('total_harga', 10, 2);
+    $table->enum('status_pembayaran', ['menunggu', 'dibayar', 'gagal'])->default('menunggu');
+    $table->string('metode_pembayaran')->nullable();
+    $table->text('catatan')->nullable();
+    $table->timestamps();
+
+    $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
+
+    Schema::create('keranjangs', function (Blueprint $table) {
+    $table->id();
+    $table->unsignedBigInteger('user_id');
+    $table->unsignedBigInteger('tiket_id');
+    $table->integer('jumlah');
+    $table->timestamps();
+
+    $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+    $table->foreign('tiket_id')->references('id')->on('tikets')->onDelete('cascade');
+});
+
+
+ Schema::create('detail_transaksis', function (Blueprint $table) {
+    $table->id();
+    $table->unsignedBigInteger('transaksi_id');
+    $table->unsignedBigInteger('tiket_id');
+    $table->integer('jumlah');
+    $table->decimal('harga_satuan', 10, 2);
+    $table->decimal('subtotal', 10, 2);
+    $table->timestamps();
+
+    $table->foreign('transaksi_id')->references('id')->on('transaksis')->onDelete('cascade');
+    $table->foreign('tiket_id')->references('id')->on('tikets')->onDelete('cascade');
+
+     Schema::create('tikets', function (Blueprint $table) {
+        $table->id();
+        $table->string('namaTiket');
+        $table->decimal('harga', 10, 2);
+        $table->integer('stok');
+        $table->string('lokawebsi'); // koordinat atau alamat
+        $table->string('gambar')->nullable(); // nama file gambar
+        $table->text('deskripsi');
+        $table->char('regencie_id', 4)->nullable();
+        $table->date('tanggal_pelaksanaan'); // tambahan field tanggal pelaksanaan
+        $table->enum('status', ['tidak tersedia', 'tersedia'])->default('tersedia'); // tambahan field status
+        $table->date('tanggal_selesai_pelaksanaan')->nullable(); // tanggal selesai pelaksanaan (nullable jika event satu hari)
+        $table->time('waktu_mulai')->nullable(); // waktu mulai pelaksanaan
+        $table->time('waktu_selesai')->nullable(); // waktu selesai pelaksanaan
+        $table->foreign('regencie_id')->references('id')->on('reg_regencies')->onDelete('cascade');
+        $table->timestamps();
+
+
+
+
+
+
+
+
+
