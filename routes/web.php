@@ -68,6 +68,12 @@ Route::middleware('auth')->group(function () {
         Route::post('/tiket/scan', [TiketController::class, 'scan'])->name('admin.tickets.scan');
         Route::post('/tiket/verify', [TiketController::class, 'verify'])->name('admin.tickets.verify');
         });
+
+        Route::get('/cek-imagick', function () {
+    return extension_loaded('imagick')
+        ? "✅ Imagick sudah terdeteksi!"
+        : "❌ Imagick BELUM terdeteksi.";
+});
 });
 
 

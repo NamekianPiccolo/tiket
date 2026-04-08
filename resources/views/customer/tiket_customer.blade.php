@@ -412,7 +412,7 @@
             </div>
         @else
             <!-- Search and Filter Box -->
-            <div class="search-box">
+            {{-- <div class="search-box">
                 <div class="row">
                     <div class="col-md-8">
                         <div class="input-group mb-3">
@@ -431,9 +431,9 @@
                         </select>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
-            <div class="row" id="ticketsContainer">
+            <div class="row" id="ticketsContainer" style="margin-top: 10vh">
                 @foreach($tiketCustomers as $tiket)
                 <div class="col-md-6 mb-4 ticket-item" data-status="{{ strtolower($tiket->status) }}" data-search="{{ $tiket->tiket->namaTiket }} {{ $tiket->kode_tiket }} {{ $tiket->nama }} {{ $tiket->email }}">
                     <div class="ticket-container">

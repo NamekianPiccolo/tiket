@@ -350,7 +350,7 @@
                     <div class="payment-section">
                         <h5 class="fw-bold mb-3">Pilih Metode Pembayaran</h5>
 
-                        <form id="paymentForm" action="{{ secure_url("/payment") }}" method="POST">
+                        <form id="paymentForm" action="{{ url("/payment") }}" method="POST">
                             @csrf
                             <input type="hidden" name="id" value="{{ $transaksi->id }}">
                             <div class="row mb-4">
@@ -410,7 +410,7 @@
                             </div>
                         </div>
 
-                        <form id="autoRedirectForm" method="POST" action="{{secure_url('/createTiket')}}" class="d-none">
+                        <form id="autoRedirectForm" method="POST" action="{{url('/createTiket')}}" class="d-none">
                             @csrf
                             <!-- Tambahkan input hidden jika perlu -->
                             <input type="hidden" name="transaksi_id" value="{{ $transaksi->id }}">
@@ -455,13 +455,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-4">
-        <div class="container">
-            <div class="text-center">
-                <p class="mb-0">&copy; {{ date('Y') }} Hypetix. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+   
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

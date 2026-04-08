@@ -267,7 +267,7 @@
                         </div>
                         <div class="card-footer">
                             @if($transaksi->status_pembayaran == 'menunggu')
-                                <form action="{{secure_url('/bayar')}}" method="post">
+                                <form action="{{url('/bayar')}}" method="post">
                                     @csrf
                                     <input type="hidden" name="id" value="{{ $transaksi->id }}">
                                     <button class="btn btn-success btn-sm ms-2">

@@ -326,7 +326,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <h1 class="cart-title"><i class="fas fa-shopping-cart"></i> Keranjang Belanja</h1>
+
                 </div>
                 <div class="col-md-6 text-md-end">
                     <nav aria-label="breadcrumb">
@@ -381,7 +381,7 @@
                                     <i class="fas fa-plus"></i>
                                 </button>
                             </div>
-                            <form action="{{ secure_url("/keranjang/$item->id") }}" method="POST" class="delete-form">
+                            <form action="{{ url("/keranjang/$item->id") }}" method="POST" class="delete-form">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="remove-item btn btn-link p-0">
@@ -450,7 +450,7 @@
                         <div>Rp {{ number_format($total, 0, ',', '.') }}</div>
                     </div>
 
-                    <form id="checkoutForm" action="{{ secure_url('/checkout') }}" method="POST" class="mt-4">
+                    <form id="checkoutForm" action="{{ url('/checkout') }}" method="POST" class="mt-4">
                         @csrf
                         <input type="hidden" name="total_harga" value="{{ $total }}">
                         @foreach($keranjang as $item)
@@ -471,33 +471,7 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-4 mt-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h5>Hypetix</h5>
-                    <p>Platform penjualan tiket online terpercaya.</p>
-                </div>
-                <div class="col-md-3">
-                    <h5>Tautan</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="/" class="text-white">Beranda</a></li>
-                        <li><a href="/" class="text-white">Tiket</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <h5>Kontak</h5>
-                    <ul class="list-unstyled">
-                        <li><i class="fas fa-envelope me-2"></i> hypetix.com</li>
-                    </ul>
-                </div>
-            </div>
-            <hr class="my-3" style="border-color: rgba(255, 255, 255, 0.1);">
-            <div class="text-center">
-                <p class="mb-0">&copy; {{ date('Y') }} Hypetix. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+
 
     <!-- JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
